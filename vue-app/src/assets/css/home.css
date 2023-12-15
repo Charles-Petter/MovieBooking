@@ -11,6 +11,12 @@
   -webkit-tap-highlight-color: transparent
 }
 
+body {
+  width: 100%;
+
+  height: 100%;
+  margin: 0;
+}
 .slick-list, .slick-slider {
   position: relative;
   display: block
@@ -731,13 +737,7 @@ img.movie-hover-img {
   margin-bottom: 88px !important
 }
 
-@media (min-width: 1600px) {
-  .slider-banner.slider {
-    width: 1600px;
-    margin: 0 auto;
-    margin-bottom: 88px !important
-  }
-}
+
 
 .slider-banner.slider a {
   display: block;

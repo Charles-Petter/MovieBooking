@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
-@EnableCaching
+//@EnableCaching
 @SpringBootApplication
 @MapperScan("com.movie.api.mapper")
 public class ApiApplication {

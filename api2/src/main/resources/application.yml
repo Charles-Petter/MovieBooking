@@ -1,0 +1,34 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/movie?characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: 123456
+  cache:
+    redis:
+      use-key-prefix: true
+      time-to-live: 60s
+
+
+  mail:
+    properties:
+      mail:
+        smtp:
+          auth=true:mybatis-plus:
+    test-connection: true
+  global-config:
+    db-config:
+      id-type: uuid
+  type-aliases-package: com.movie.api.model.entity
+
+spring.mail.default-encoding: UTF-8
+spring.mail.host: smtp.qq.com
+spring.mail.username: 1748521208@qq.com
+spring.mail.password: qruysbhzbtjhfffc
+spring.mail.protocol: smtp
+
+
+
