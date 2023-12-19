@@ -55,6 +55,13 @@
             <artifactId>jedis</artifactId>
         </dependency>
 
+        <!-- Web3j Core -->
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>core</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
         <!-- Spring Boot Starter Mail -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

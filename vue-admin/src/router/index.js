@@ -43,31 +43,31 @@ const routes = [
                 component: () => import("@/views/user/List")
             },
 
-            {
-                path: '/order/list',
-                component: () => import("@/views/order/List")
-            },
-            {
-                path: '/order/exception',
-                component: () => import("@/views/order/Exception")
-            },
-
-            {
-                path: '/worker/list',
-                component: () => import("@/views/worker/List")
-            },
-            {
-                path: '/worker/daily',
-                component: () => import("@/views/worker/Daily")
-            },
-            {
-                path: '/worker/add',
-                component: () => import("@/views/worker/Add")
-            },
-            {
-                path: '/api',
-                component: () => import("@/views/Api")
-            },
+            // {
+            //     path: '/order/list',
+            //     component: () => import("@/views/order/List")
+            // },
+            // {
+            //     path: '/order/exception',
+            //     component: () => import("@/views/order/Exception")
+            // },
+            //
+            // {
+            //     path: '/worker/list',
+            //     component: () => import("@/views/worker/List")
+            // },
+            // {
+            //     path: '/worker/daily',
+            //     component: () => import("@/views/worker/Daily")
+            // },
+            // {
+            //     path: '/worker/add',
+            //     component: () => import("@/views/worker/Add")
+            // },
+            // {
+            //     path: '/api',
+            //     component: () => import("@/views/Api")
+            // },
             {
                 path: '/setting',
                 component: () => import("@/views/Setting")

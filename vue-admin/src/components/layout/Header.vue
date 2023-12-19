@@ -6,7 +6,7 @@
           <el-button type="text">
             <div class="header-name">Admin</div>
             <el-avatar style="margin-top: 5px" :size="29"
-                       src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png">
+                       src="https://seopic.699pic.com/photo/60032/1971.jpg_wh1200.jpg">
             </el-avatar>
           </el-button>
           <el-dropdown-menu slot="dropdown">

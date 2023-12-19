@@ -46,18 +46,18 @@ const routes = [
                 path: '/films',
                 component: () => import("@/views/Films")
             },
-            {
-                path: '/active',
-                component: () => import("@/views/Active")
-            },
+            // {
+            //     path: '/active',
+            //     component: () => import("@/views/Active")
+            // },
             {
                 path: '/seat',
                 component: () => import("@/views/Seat")
             },
-            {
-                path: '/leaving',
-                component: () => import("@/views/Leaving")
-            },
+            // {
+            //     path: '/leaving',
+            //     component: () => import("@/views/Leaving")
+            // },
             {
                 path: '/me',
                 component: Me,

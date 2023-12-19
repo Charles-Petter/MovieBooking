@@ -1,7 +1,6 @@
 <template>
   <div class="footer">
     <p> Copyright 2023 Xin影院</p>
-    <p>京公网安备 1101010110110110号 京ICP备123456789号-1</p>
   </div>
 </template>
 

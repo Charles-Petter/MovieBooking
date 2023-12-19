@@ -12,6 +12,6 @@ public interface RoleService {
 
     List<Role> listRolesByWorkerId(String wid);
 
-    void deleteWorkerAllRoles(String wid);
+//    void deleteWorkerAllRoles(String wid);
 
 }

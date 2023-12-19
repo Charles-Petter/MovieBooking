@@ -48,9 +48,9 @@ public class RoleServiceImpl implements RoleService {
         return roleMapper.selectList(wrapper);
     }
 
-    @Override
-    public void deleteWorkerAllRoles(String wid) {
-        roleMapper.delete(new QueryWrapper<Role>().in("wid", wid));
-    }
+//    @Override
+//    public void deleteWorkerAllRoles(String wid) {
+//        roleMapper.delete(new QueryWrapper<Role>().in("wid", wid));
+//    }
 
 }

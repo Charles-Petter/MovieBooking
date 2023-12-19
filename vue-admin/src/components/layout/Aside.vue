@@ -45,45 +45,45 @@
             </el-menu-item-group>
           </el-submenu>
 
-          <el-submenu index="6">
-            <template slot="title">
-              <i class="el-icon-s-order"></i>
-              <span>订单管理</span>
-            </template>
-            <el-menu-item-group>
-              <router-link to="/order/list">
-                <el-menu-item style="padding-left: 70px" index="6-1">订单列表</el-menu-item>
-              </router-link>
-              <router-link to="/order/exception">
-                <el-menu-item style="padding-left: 70px" index="6-2">异常订单</el-menu-item>
-              </router-link>
-            </el-menu-item-group>
-          </el-submenu>
+<!--          <el-submenu index="6">-->
+<!--            <template slot="title">-->
+<!--              <i class="el-icon-s-order"></i>-->
+<!--              <span>订单管理</span>-->
+<!--            </template>-->
+<!--            <el-menu-item-group>-->
+<!--              <router-link to="/order/list">-->
+<!--                <el-menu-item style="padding-left: 70px" index="6-1">订单列表</el-menu-item>-->
+<!--              </router-link>-->
+<!--              <router-link to="/order/exception">-->
+<!--                <el-menu-item style="padding-left: 70px" index="6-2">异常订单</el-menu-item>-->
+<!--              </router-link>-->
+<!--            </el-menu-item-group>-->
+<!--          </el-submenu>-->
 
-          <el-submenu index="3">
-            <template slot="title">
-              <i class="el-icon-s-opportunity"></i>
-              <span>员工管理</span>
-            </template>
-            <el-menu-item-group>
-              <router-link to="/worker/list">
-                <el-menu-item style="padding-left: 70px" index="3-1">员工列表</el-menu-item>
-              </router-link>
-              <router-link to="/worker/daily">
-                <el-menu-item style="padding-left: 70px" index="3-2">每日工作</el-menu-item>
-              </router-link>
-              <router-link to="/worker/add">
-                <el-menu-item style="padding-left: 70px" index="3-3">新增员工</el-menu-item>
-              </router-link>
-            </el-menu-item-group>
-          </el-submenu>
+<!--          <el-submenu index="3">-->
+<!--            <template slot="title">-->
+<!--              <i class="el-icon-s-opportunity"></i>-->
+<!--              <span>员工管理</span>-->
+<!--            </template>-->
+<!--            <el-menu-item-group>-->
+<!--              <router-link to="/worker/list">-->
+<!--                <el-menu-item style="padding-left: 70px" index="3-1">员工列表</el-menu-item>-->
+<!--              </router-link>-->
+<!--              <router-link to="/worker/daily">-->
+<!--                <el-menu-item style="padding-left: 70px" index="3-2">每日工作</el-menu-item>-->
+<!--              </router-link>-->
+<!--              <router-link to="/worker/add">-->
+<!--                <el-menu-item style="padding-left: 70px" index="3-3">新增员工</el-menu-item>-->
+<!--              </router-link>-->
+<!--            </el-menu-item-group>-->
+<!--          </el-submenu>-->
 
-          <router-link to="/api">
-            <el-menu-item index="4">
-              <i class="el-icon-document"></i>
-              <span slot="title">Api接口</span>
-            </el-menu-item>
-          </router-link>
+<!--          <router-link to="/api">-->
+<!--            <el-menu-item index="4">-->
+<!--              <i class="el-icon-document"></i>-->
+<!--              <span slot="title">Api接口</span>-->
+<!--            </el-menu-item>-->
+<!--          </router-link>-->
 
           <router-link v-if="role==='worker'" to="/setting">
             <el-menu-item index="7">

@@ -8,8 +8,8 @@
       <div class="header-links">
         <el-link href="/" class="header-link" :underline="false">首页</el-link>
         <el-link href="/films?region=全部&type=全部" class="header-link" :underline="false">电影</el-link>
-        <el-link href="/active" class="header-link" :underline="false">活动</el-link>
-        <el-link href="/leaving" class="header-link" :underline="false">留言</el-link>
+<!--        <el-link href="/active" class="header-link" :underline="false">活动</el-link>-->
+<!--        <el-link href="/leaving" class="header-link" :underline="false">留言</el-link>-->
       </div>
 
       <div class="header-search">

@@ -9,7 +9,6 @@
           <div style="float: left;line-height: 100px;padding-right: 20px">
             <el-checkbox @change="handleCheck" v-model="selectList[index].checked"></el-checkbox>
           </div>
-          <img class="item-film-img" alt="" src="../../assets/img/film.png"/>
           <div style="float: left;">
             <div class="item-film-name">《{{ item.film.name }}》</div>
             <div class="item-film-seat">座位 : {{ item.cart.seats }}</div>
