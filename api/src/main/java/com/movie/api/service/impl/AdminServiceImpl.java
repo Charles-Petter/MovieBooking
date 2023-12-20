@@ -25,7 +25,7 @@ public class AdminServiceImpl implements AdminService {
         wrapper.in("username", loginDto.getUsername());
         wrapper.in("password", loginDto.getPassword());
         Admin admin = adminMapper.selectOne(wrapper);
-        if (admin == null) throw new Exception("用户名密码错误");
+//        if (admin == null) throw new Exception("用户名密码错误");
         //是否选择记住我
         long exp = loginDto.isRemember() ? JwtTokenUtil.REMEMBER_EXPIRATION_TIME : JwtTokenUtil.EXPIRATION_TIME;
         List<String> roles = new ArrayList<>();

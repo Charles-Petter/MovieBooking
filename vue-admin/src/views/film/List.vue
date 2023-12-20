@@ -145,11 +145,12 @@
         <el-button type="primary" @click="submitArrange()">确 定</el-button>
       </span>
     </el-dialog>
+    <el-table v-loading="tableLoading" :data="pagedFilmList" style="width: 100%">
 
-    <el-table
-        v-loading="tableLoading"
-        :data="filmList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
-        style="width: 100%">
+<!--    <el-table-->
+<!--        v-loading="tableLoading"-->
+<!--        :data="filmList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"-->
+<!--        style="width: 100%">-->
 
       <el-table-column label="电影名">
         <template slot-scope="scope">
@@ -230,6 +231,16 @@
 
     </el-table>
 
+    <el-pagination
+        v-if="totalPages > 1"
+        @current-change="handlePageChange"
+        :current-page="currentPage"
+        :page-sizes="[4, 8, 12]"
+        :page-size="pageSize"
+        layout="sizes, prev, pager, next, jumper"
+        :total="filmList.length">
+    </el-pagination>
+
   </div>
 </template>
 
@@ -240,6 +251,8 @@ import config from "@/config";
 export default {
   data() {
     return {
+      currentPage: 1, // 当前页码
+      pageSize: 4, // 每页显示数量
       header:{
         "Authorization": localStorage.getItem("token")
       },
@@ -255,6 +268,7 @@ export default {
         introduction: '',
         type: '',
         status: true,
+
       },
       arrangement: {
         name: '',
@@ -274,6 +288,16 @@ export default {
     }
   },
 
+  computed: {
+    pagedFilmList() {
+      const startIndex = (this.currentPage - 1) * this.pageSize; // 计算起始索引
+      const endIndex = startIndex + this.pageSize; // 计算结束索引
+      return this.filmList.slice(startIndex, endIndex); // 截取当前页的数据
+    },
+    totalPages() {
+      return Math.ceil(this.filmList.length / this.pageSize); // 计算总页数
+    },
+  },
   mounted() {
     this.tableLoading = true;
     ListAllFilm().then(res=>{
@@ -323,7 +347,9 @@ export default {
     handleUploadSuccess(res){
       this.url = res;
     },
-
+    handlePageChange(page) {
+      this.currentPage = page; // 更新当前页码
+    },
   },
 }
 </script>

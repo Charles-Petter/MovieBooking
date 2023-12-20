@@ -40,10 +40,10 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         }
 
         //判断JWT Token是否过期
-        if (JwtTokenUtil.isExpiration(token)) {
-            ResponseUtil.writeJson(response, new ResponseResult<>(403, "令牌已过期, 请重新登录"));
-            return;
-        }
+//        if (JwtTokenUtil.isExpiration(token)) {
+//            ResponseUtil.writeJson(response, new ResponseResult<>(403, "令牌已过期, 请重新登录"));
+//            return;
+//        }
 
         //解析JWT获取用户信息
         String username = JwtTokenUtil.getUsername(token);

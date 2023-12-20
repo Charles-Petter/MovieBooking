@@ -66,6 +66,21 @@ public class UserController {
         return userService.update(user);
     }
 
+
+//    @ApiOperation("根据id删除用户")
+//    @ResponseBody
+//    @PostMapping("/deleteUser")
+//    public int deleteUser(Integer id) {
+//        return userService.deleteById(String.valueOf(id));
+//    }
+
+    @ApiOperation("根据用户名删除用户")
+    @ResponseBody
+    @DeleteMapping("/deleteUserByUsername")
+    public void deleteUserByUsername(@RequestParam String username) {
+        userService.deleteByUsername(username);
+    }
+
     @GetMapping("/{id}")
     @ApiOperation(value = "查找用户")
     public User findById(@PathVariable String id) {
@@ -120,4 +135,9 @@ public class UserController {
         String savedCode = redisTemplate.opsForValue().get(email);
         return code.equals(savedCode);
     }
+
+
+
+
+
 }

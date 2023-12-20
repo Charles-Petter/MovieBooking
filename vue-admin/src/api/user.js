@@ -22,3 +22,12 @@ export function UpdateUser(data) {
         data: data
     })
 }
+
+
+export function DeleteUserByUsername(username) {
+    return request({
+        url: '/api/user/deleteUserByUsername',
+        method: 'delete',
+        params: { username }
+    })
+}

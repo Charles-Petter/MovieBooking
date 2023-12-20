@@ -80,79 +80,115 @@
 
     </div>
 
-    <div class="main">
-      <div class="movie-grid">
-        <div class="panel">
-          <div class="panel-header">
+    <div class="container">
+      <div class="main">
+        <div class="movie-grid">
+          <div class="panel">
+            <div class="panel-header">
             <span class="panel-title">
               <span class="textcolor_orange">正在热播  ( {{ filmList.length }} )</span>
             </span>
-          </div>
-          <div class="panel-content">
-            <dl class="movie-list">
-              <dd v-for="item in filmList">
-                <router-link :to="'/film/info?fid=' + item.id">
-                  <div class="movie-item">
-                    <div class="movie-poster">
-                      <img class="poster-default" alt=""
-                           :src="item.cover">
-                      <img class="movie-poster-img" alt="不要先生与好的女士海报封面"
-                           :src="item.cover">
-                      <div class="movie-overlay movie-overlay-bg">
-                        <div class="movie-info">
-                          <div class="movie-title" title="">{{ item.name }}</div>
+            </div>
+            <div class="panel-content">
+              <dl class="movie-list">
+                <dd v-for="(item, index) in paginatedFilmList">
+                  <router-link :to="'/film/info?fid=' + item.id">
+                    <div class="movie-item">
+                      <div class="movie-poster">
+                        <img class="poster-default" alt="" :src="item.cover">
+                        <img class="movie-poster-img" alt="" :src="item.cover">
+                        <div class="movie-overlay movie-overlay-bg">
+                          <div class="movie-info">
+                            <div class="movie-title" title="">{{ item.name }}</div>
+                          </div>
                         </div>
                       </div>
+                      <div class="movie-ver"></div>
                     </div>
-                    <div class="movie-detail movie-wish"><span class="stonefont">123</span>人想看</div>
-                    <div class="movie-ver"></div>
-                  </div>
-                  <div class="movie-detail movie-rt">{{ item.releaseTime }} 上映</div>
-                </router-link>
-              </dd>
-            </dl>
+                    <div class="movie-detail movie-rt">{{ item.releaseTime }} 上映</div>
+                  </router-link>
+                </dd>
+              </dl>
+              <div class="pagination">
+                <span>当前第{{ currentPage }}页，共{{ totalPage }}页</span>
+                <button @click="prevPage">上一页</button>
+                <button v-for="page in pages" @click="goToPage(page)">{{ page }}</button>
+                <button @click="nextPage">下一页</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
   </div>
+
 </template>
 
 <script>
-import {ListAllFilm, ListAllPoster, ListHots} from "@/api/film";
+import { ListAllFilm, ListAllPoster, ListHots } from "@/api/film";
 
 export default {
-
   data() {
     return {
       top1: {},
       top2: {},
       top3: {},
-      topList: [],
       filmList: [],
-      posterList: []
+      posterList: [],
+      currentPage: 1,
+      pageSize: 4
+    };
+  },
+  computed: {
+    totalPage() {
+      return Math.ceil(this.filmList.length / this.pageSize);
+    },
+    paginatedFilmList() {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      const endIndex = startIndex + this.pageSize;
+      return this.filmList.slice(startIndex, endIndex);
+    },
+    pages() {
+      const pages = [];
+      for (let i = 1; i <= this.totalPage; i++) {
+        pages.push(i);
+      }
+      return pages;
     }
   },
-
+  methods: {
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPage) {
+        this.currentPage++;
+      }
+    },
+    goToPage(page) {
+      this.currentPage = page;
+    }
+  },
   mounted() {
-    ListAllFilm().then(res => {
-      this.filmList = res.data
-    })
-    ListAllPoster().then(res => {
-      this.posterList = res.data
-    })
-    ListHots().then(res => {
-      this.topList = res.data
-      this.top1 = this.topList[0]
-      this.top2 = this.topList[1]
-      this.top3 = this.topList[2]
-      this.topList.splice(0, 3)
-    })
+    ListAllFilm().then((res) => {
+      this.filmList = res.data;
+    });
+    ListAllPoster().then((res) => {
+      this.posterList = res.data;
+    });
+    ListHots().then((res) => {
+      this.topList = res.data;
+      this.top1 = this.topList[0];
+      this.top2 = this.topList[1];
+      this.top3 = this.topList[2];
+      this.topList.splice(0, 3);
+    });
   }
-}
+};
 </script>
-
 <style scoped>
 @import "../assets/css/home.css";
 
